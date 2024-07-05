@@ -4,11 +4,10 @@ const domesticNameservers = [
 ];
 // 国外DNS服务器
 const foreignNameservers = [
-  "192.168.100.200"//,
-  //  "https://1.1.1.1/dns-query", // Cloudflare(主)
-  //  "https://1.0.0.1/dns-query", // Cloudflare(备)
-  //  'https://8.8.8.8/dns-query', // Google(主)
-  //  'https://8.8.4.4/dns-query' // Google(备)
+  "https://1.1.1.1/dns-query", // Cloudflare(主)
+  "https://1.0.0.1/dns-query", // Cloudflare(备)
+  'https://8.8.8.8/dns-query', // Google(主)
+  'https://8.8.4.4/dns-query' // Google(备)
 ];
 // DNS配置
 const dnsConfig = {
@@ -38,7 +37,6 @@ const dnsConfig = {
   "nameserver-policy": {
     "geosite:private,cn,geolocation-cn": domesticNameservers,
     "geosite:google,youtube,telegram,gfw,geolocation-!cn": foreignNameservers
-    // ...domesticNameservers,...foreignNameservers
   }
 };
 // 规则集通用配置
@@ -144,12 +142,11 @@ const rules = [
   "RULE-SET,gfw,节点选择",
   "RULE-SET,proxy,节点选择",
   "RULE-SET,tld-not-cn,节点选择",
+  "RULE-SET,telegramcidr,电报消息,no-resolve",
   "RULE-SET,direct,全局直连",
   "RULE-SET,lancidr,全局直连,no-resolve",
-  "RULE-SET,cncidr,全局直连,no-resolve",
-  "RULE-SET,telegramcidr,电报消息,no-resolve",
-  // 其他规则
   "GEOIP,LAN,全局直连,no-resolve",
+  "RULE-SET,cncidr,全局直连,no-resolve",
   "GEOIP,CN,全局直连,no-resolve",
   "MATCH,漏网之鱼"
 ];
@@ -181,7 +178,7 @@ const proxyProviders = {
   "ariport节点": {
     "type": "http",
     "interval": 3600,
-    "url": "机场订阅地址",
+    "url": "https://study.jaycloud11111.top/study?token=1c4b339a0425f0c674ff47dc48e2c7e3",
     "path": ".\\ariport.yaml",
     "filter": "(?i)香港"
   }
