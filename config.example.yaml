@@ -22,6 +22,7 @@ bot:
   bright: str = "]" # 进度条
   bspace: str = "  " # 进度条
   inviteGroup: [] # invite指令权限覆写群组白名单，写上对应群组id，那个群所有人都将可以使用/invite指令，默认只能用户权限使用。 群组id以-100开头
+  cacheTime: 60 # 订阅缓存的最大时长，默认60秒。一个订阅不会重复拉取，在60秒内使用缓存值，超过60秒重新获取。
 image:
   color: # 颜色配置
     background: # 背景颜色
