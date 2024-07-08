@@ -242,7 +242,7 @@ runtime: # 测速任务可以动态调整的配置
 scriptConfig:
   scripts: # 脚本载入
     - type: gojajs # 暂时为此固定值
-      name: "Netflix" # 脚本名称
+      name: "示例脚本" # 脚本名称
       rank: 0 # 排序，越小排在越前面
       content: | # 脚本内容
         const C_NA = '142,140,142';
@@ -259,51 +259,51 @@ scriptConfig:
     - type: gojajs
       name: "Youtube"
       rank: 0
-      content: "resources/scripts/gojajs/youtube.js" # 也可以指定一个文件路径
+      content: "resources/scripts/builtin/youtube.js" # 也可以指定一个文件路径
     - type: gojajs
       name: "Disney+"
       rank: 1
-      content: "resources/scripts/gojajs/disney.js"
+      content: "resources/scripts/builtin/disney.js"
     - type: gojajs
       name: "OpenAI"
       rank: 2
-      content: "resources/scripts/gojajs/openai.js"
+      content: "resources/scripts/builtin/openai.js"
     - type: gojajs
       name: "Tiktok"
       rank: 3
-      content: "resources/scripts/gojajs/tiktok.js"
+      content: "resources/scripts/builtin/tiktok.js"
     - type: gojajs
       name: "维基百科"
       rank: 4
-      content: "resources/scripts/gojajs/维基百科.js"
+      content: "resources/scripts/builtin/wikipedia.js"
     - type: gojajs
       name: "Claude"
       rank: 5
-      content: "resources/scripts/gojajs/Claude.js"
+      content: "resources/scripts/builtin/Claude.js"
     - type: gojajs
       name: "Bilibili"
       rank: 6
-      content: "resources/scripts/gojajs/bilibili.js"
+      content: "resources/scripts/builtin/bilibili.js"
     - type: gojajs
       name: "微软Copilot"
       rank: 7
-      content: "resources/scripts/gojajs/copilot.js"
+      content: "resources/scripts/builtin/copilot.js"
     - type: gojajs
       name: "Spotify"
       rank: 8
-      content: "resources/scripts/gojajs/spotify.js"
+      content: "resources/scripts/builtin/spotify.js"
     - type: gojajs
       name: "Viu"
       rank: 9
-      content: "resources/scripts/gojajs/viu.js"
+      content: "resources/scripts/builtin/viu.js"
     - type: gojajs
       name: "IP风险"
       rank: 11
-      content: "resources/scripts/gojajs/落地IP风险.js"
+      content: "resources/scripts/builtin/iprisk.js"
     - type: gojajs
       name: "DNS区域"
       rank: 10
-      content: "resources/scripts/gojajs/dns.js"
+      content: "resources/scripts/builtin/dns.js"
 slaveConfig: # 后端配置
   default: '' # 默认后端设置，未实现
   slaves: # 后端列表，注意是数组类型

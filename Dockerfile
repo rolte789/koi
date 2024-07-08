@@ -17,11 +17,10 @@ RUN apt-get update && \
     unzip && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
+    unzip -q /tmp/koipy*.zip -d /opt/ && \ 
+    mv /tmp/koipy /opt/koipy && \ 
     git clone --single-branch --depth=1 https://github.com/twitter/twemoji.git /opt/resources/emoji/twemoji && \
-    unzip -q /tmp/koi*.zip -d /opt/ && \
-    unzip -q /tmp/scripts.zip -d /opt/resources/scripts/gojajs/ && \
-    mv /tmp/koipy /opt/ && \
-    chmod +x /opt/koipy && \
+    chmod +x /opt/koipy && \ 
     rm -rf /tmp/* && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
