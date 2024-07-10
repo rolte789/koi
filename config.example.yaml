@@ -17,10 +17,10 @@ bot:
   scriptText: "" # 进度条文本
   analyzeText: ""  # 分析进度条文本
   speedText: "" # 速度进度条文本
-  bar: str = "=" # 进度条
-  bleft: str = "[" # 进度条
-  bright: str = "]" # 进度条
-  bspace: str = "  " # 进度条
+  bar: "=" # 进度条
+  bleft: "[" # 进度条
+  bright: "]" # 进度条
+  bspace: "  " # 进度条
   inviteGroup: [] # invite指令权限覆写群组白名单，写上对应群组id，那个群所有人都将可以使用/invite指令，默认只能用户权限使用。 群组id以-100开头
   cacheTime: 60 # 订阅缓存的最大时长，默认60秒。一个订阅不会重复拉取，在60秒内使用缓存值，超过60秒重新获取。
 image:
@@ -228,10 +228,10 @@ image:
     text: FullTclash dev # 水印内容
     trace: false # UID追踪开启，测试图结果显示任务发起人的UID
 runtime: # 测速任务可以动态调整的配置
-  entrance: ip # 暂时无用
+  entrance: true # 是否显示入口IP段
   geoipAPI: ip-api.com # 暂时无用
   interval: 10 # 暂时无用
-  ipstack: false # 暂时无用
+  ipstack: true # 是否启用双栈检测
   localip: false # 暂时无用
   nospeed: false # 暂时无用
   pingURL: https://www.gstatic.com/generate_204 # 延迟测试地址
