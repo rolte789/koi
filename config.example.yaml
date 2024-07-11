@@ -237,7 +237,7 @@ runtime: # 测速任务可以动态调整的配置
   pingURL: https://www.gstatic.com/generate_204 # 延迟测试地址
   speedFiles: # 速度测试的大文件下载地址
   - https://dl.google.com/dl/android/studio/install/3.4.1.0/android-studio-ide-183.5522156-windows.exe
-  speedNodes: 300 # 暂时无用
+  speedNodes: 300 # 最大测速节点数量
   speedThreads: 4 # 暂时无用
 scriptConfig:
   scripts: # 脚本载入
@@ -306,6 +306,7 @@ scriptConfig:
       content: "resources/scripts/builtin/dns.js"
 slaveConfig: # 后端配置
   default: '' # 默认后端设置，未实现
+  showID: true # 是否在选择后端页面展示slaveid
   slaves: # 后端列表，注意是数组类型
     - type: miaospeed # 固定值，目前只这个支持
       id: "localmiaospeed" # 后端id
