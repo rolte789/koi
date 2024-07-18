@@ -264,7 +264,7 @@ scriptConfig:
     - type: gojajs
       name: "Disney+"
       rank: 1
-      content: "resources/scripts/builtin/disney.js"
+      content: "resources/scripts/builtin/disney+.js"
     - type: gojajs
       name: "OpenAI"
       rank: 2

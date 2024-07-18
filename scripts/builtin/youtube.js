@@ -9,17 +9,17 @@ function handler() {
     headers: {
       'user-agent':
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-      accept:
+      'accept':
         'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
       'accept-language': 'en',
       'upgrade-insecure-requests': '1',
-      cookies: {
-        YSC: 'BiCUU3-5Gdk',
-        CONSENT: 'YES+cb.20220301-11-p0.en+FX+700',
-        GPS: '1',
-        VISITOR_INFO1_LIVE: '4VwPMkB7W5A',
-        _gcl_au: '1.1.1809531354.1646633279',
-        PREF: 'tz=Asia.Shanghai',
+      'cookies': {
+        'YSC': 'BiCUU3-5Gdk',
+        'CONSENT': 'YES+cb.20220301-11-p0.en+FX+700',
+        'GPS': '1',
+        'VISITOR_INFO1_LIVE': '4VwPMkB7W5A',
+        '_gcl_au': '1.1.1809531354.1646633279',
+        'PREF': 'tz=Asia.Shanghai',
       },
     },
     noRedir: false,
