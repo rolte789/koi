@@ -9,9 +9,9 @@ function randomHead(x) {
     return s;
 }
 
-const failed = {
-    text: '失败',
-    background: '239,107,115',
+const na = {
+    text: 'N/A',
+    background: '142,140,142',
 };
 
 function handler() {
@@ -37,7 +37,7 @@ function handler() {
     const dnsasnorg = get(dnsRet, "as", "").split(" ").shift();
 
     if (!dnscountry) {
-        return failed;
+        return na;
     }
   
     return `${dnsasnorg} (${dnscountry})`;

@@ -305,6 +305,11 @@ scriptConfig:
       name: "DNS区域"
       rank: 10
       content: "resources/scripts/builtin/dns.js"
+# 以下为固定脚本名称，用于覆写内置的GEOIP脚本，脚本名称不可更改：
+#    - type: gojajs
+#      name: "GEOIP_INBOUND"
+#      rank: 0
+#      content: "YOUR_GEOIP_SCRIPT" # 默认的GEOIP脚本参见 https://github.com/AirportR/miaospeed/blob/master/engine/embeded/default_geoip.js
 slaveConfig: # 后端配置
   default: '' # 默认后端设置，未实现
   showID: true # 是否在选择后端页面展示slaveid
@@ -319,14 +324,23 @@ slaveConfig: # 后端配置
       buildtoken: "MIAOKO4|580JxAo049R|GEnERAl|1X571R930|T0kEN" # 默认编译token  如果你不知道在做什么，请写此默认值
       comment: "本地miaospeed后端" # 后端备注，显示在bot页面的
       hidden: false # 是否隐藏此后端
-      option: # 可选配置
+      option: # 可选配置，请注意部分值设置得太大会不生效，比如taskTimeout设置成10000以上，就不会生效。
         downloadDuration: 8 # 测试时长
         downloadThreading: 4 # 测速线程
         downloadURL: https://dl.google.com/dl/android/studio/install/3.4.1.0/android-studio-ide-183.5522156-windows.exe # 测速文件
         pingAddress: https://cp.cloudflare.com/generate_204 # 延迟测试地址
         pingAverageOver: 3 # ping多少次取平均
-        stunURL: udp://stun.ideasip.com:3478 # STUN地址，测udp连通性的
-        taskRetry: 3 # 后端任务重试
+        stunURL: udp://stun.ideasip.com:3478 # STUN地址，测udp连通性的，格式: udp://host:port
+        taskRetry: 3 # 后端任务重试，单位秒(s)
+        taskTimeout: 2500 # 后端任务超时判定时长，单位毫秒(ms)
+        dnsServer: [] # 后端指定dns服务器，解析节点域名时会用到。例子: [119.29.29.29, 223.5.5.5]
+rules:
+  - name: 订阅名1 # 规则名称
+    url: https://www.google.com  # 订阅链接
+    owner: 1111111111 # 规则创建者
+  - name: 订阅名2 # 规则名称2
+    url: https://www.google2.com  # 订阅链接
+    owner: 2222222222 # 规则创建者
 subconverter: # 订阅转换
   address: 127.0.0.1:25500 # 地址
   enable: false # 是否启用
