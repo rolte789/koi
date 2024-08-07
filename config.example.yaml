@@ -334,6 +334,8 @@ slaveConfig: # 后端配置
         taskRetry: 3 # 后端任务重试，单位秒(s)
         taskTimeout: 2500 # 后端任务超时判定时长，单位毫秒(ms)
         dnsServer: [] # 后端指定dns服务器，解析节点域名时会用到。例子: [119.29.29.29, 223.5.5.5]
+        apiVersion: 2 # 后端Api版本，设置为 0或者1可以适配旧版主端兼容性，比如fulltclash,miaoko等。默认为2，如无必要请勿修改
+        useClashPing: false # 使用Clash系的测延迟算法，这样可以做到与Clash系列延迟结果一致。默认使用miaospeed自主实现的延迟算法。当apiVersion值为0或1时，此配置无效。
 rules:
   - name: 订阅名1 # 规则名称
     url: https://www.google.com  # 订阅链接
