@@ -6,7 +6,7 @@ ENV TZ=Asia/Shanghai
 ENV SHELL=/bin/bash
 ENV LANG=C.UTF-8
 
-WORKDIR /opt
+WORKDIR /app
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -17,12 +17,12 @@ RUN apt-get update && \
     unzip && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
-    unzip -q /tmp/koipy*.zip -d /opt/ && \ 
-    mv /tmp/koipy /opt/ && \ 
-    git clone --single-branch --depth=1 https://github.com/twitter/twemoji.git /opt/resources/emoji/twemoji && \
-    chmod +x /opt/koipy && \ 
+    unzip -q /tmp/koipy*.zip -d /app/ && \ 
+    mv /tmp/koipy /app/ && \ 
+    git clone --single-branch --depth=1 https://github.com/twitter/twemoji.git /app/resources/emoji/twemoji && \
+    chmod +x /app/koipy && \ 
     apt-get clean && \ 
     rm -rf /tmp/* && \
     rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["/opt/koipy"]
+ENTRYPOINT ["/app/koipy"]

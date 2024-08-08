@@ -23,7 +23,7 @@ function handler() {
     const dnsqRet = safeParse(get(dnsServer, "body"));
     const dnsqLoc = get(dnsqRet, "dns.ip");
     if (!dnsqLoc) {
-        return failed;
+        return na;
     }
 
     const dnsqInfo = fetch(`http://ip-api.com/json/${dnsqLoc}?lang=en-US&fields=status,message,countryCode,as,asname,query`, {
