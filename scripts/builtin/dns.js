@@ -19,6 +19,8 @@ function handler() {
         headers: {
             'User-Agent': UA,
         },
+        retry: 3,
+        timeout: 5000,
     });
     const dnsqRet = safeParse(get(dnsServer, "body"));
     const dnsqLoc = get(dnsqRet, "dns.ip");

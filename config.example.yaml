@@ -242,7 +242,10 @@ runtime: # 测速任务可以动态调整的配置
   speedThreads: 4 # 暂时无用
 scriptConfig:
   scripts: # 脚本载入
-    - type: gojajs # 暂时为此固定值
+    - type: gofunc # 表示是miaospeed的内置实现
+      name: "TEST_PING_RTT" # 特殊保留名称，当设置为这些特殊保留值时会覆写程序内部的默认配置，更多的特殊保留值请参阅这里: https://github.com/airportr/miaospeed/blob/master/interfaces/matrix.go#L3
+      rank: -100 # 排序
+    - type: gojajs # 表示miaospeed主流脚本类型
       name: "示例脚本" # 脚本名称
       rank: 0 # 排序，越小排在越前面
       content: | # 脚本内容
@@ -333,13 +336,15 @@ slaveConfig: # 后端配置
         stunURL: udp://stunserver2024.stunprotocol.org:3478 # STUN地址，测udp连通性的，格式: udp://host:port
         taskRetry: 3 # 后端任务重试，单位秒(s)
         taskTimeout: 2500 # 后端任务超时判定时长，单位毫秒(ms)
-        dnsServer: [] # 后端指定dns服务器，解析节点域名时会用到。例子: [119.29.29.29, 223.5.5.5]
-        apiVersion: 2 # 后端Api版本，设置为 0或者1可以适配旧版后端兼容性，默认为2，如无必要请勿修改。如果要对接其他分支miaospeed请设置为0或者1
-        useClashPing: false # 使用Clash系的测延迟算法，这样可以做到与Clash系列延迟结果一致。默认使用miaospeed自主实现的延迟算法。当apiVersion值为0或1时，此配置无效。
+        dnsServer: [] # 后端指定dns服务器，解析节点域名时会用到。例子: ["119.29.29.29:53", "223.5.5.5:53"]
+        apiVersion: 1 # 后端Api版本，设置为 0或者1可以适配旧版后端兼容性，默认为2，如无必要请勿修改。如果要对接其他分支miaospeed请设置为0或者1
 rules:
   - name: 订阅名1 # 规则名称
     url: https://www.google.com  # 订阅链接
     owner: 1111111111 # 规则创建者
+    slaveid: local # 写你再后端配置里设置的后端id
+    runtime: null # 支持主配置runtime的所有值
+    script: [] # 写你在后端配置里设置的脚本配置名称，也支持预保留的名称TEST_PING_RTT等
   - name: 订阅名2 # 规则名称2
     url: https://www.google2.com  # 订阅链接
     owner: 2222222222 # 规则创建者
